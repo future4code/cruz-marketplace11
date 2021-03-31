@@ -1,17 +1,45 @@
-import axios from 'axios'
-import React, { Component } from 'react'
-import TesteForm from './TesteForm'
+import "./styles.css";
+import React from "react";
+import Compras from "./components/Compras";
+import Vendas from "./components/Vendas";
+import Home from "./components/Home";
+import TesteForm from './components/TesteForm'
+
+// import TesteForm from './TesteForm'
 
 
-export class AppContainer extends Component {
+class App extends React.Component {
+
   state = {
     carrosAVenda: [],
     nome: "",
     descricao: "",
     preco: "",
     metodoPagamento: "",
-    tempoEntrega: ""
+    tempoEntrega: "",
+    telaAtual: "home"
+
   }
+
+
+
+
+
+
+
+
+  paginaCompras = () => {
+    this.setState({ telaAtual: "paginaCompras" });
+  };
+
+  paginaVendas = () => {
+    this.setState({ telaAtual: "paginaVendas" });
+  };
+
+  paginaHome = () => {
+    this.setState({ telaAtual: "home" });
+  };
+
 
   componentDidMount() {
     this.pegarTodosOsCarros()
@@ -83,24 +111,64 @@ export class AppContainer extends Component {
   }
 
 
+
+
+
   render() {
-    return (
+    let escolherPagina = () => {
+      switch (this.state.telaAtual) {
+        case "paginaCompras":
+          return (
+            <Compras
+              paginaHome={this.paginaHome}
+              paginaVendas={this.paginaVendas}
+            />
+          );
+        case "paginaVendas":
+          return (
+            <Vendas
+              paginaHome={this.paginaHome}
+              paginaCompras={this.paginaCompras}
+            />
+          );
+        default:
+          return (
+            <Home
+              paginaCompras={this.paginaCompras}
+              paginaVendas={this.paginaVendas}
+            />
+          );
+      }
+    };
+
+    return  <div className="App">{
+
+
+
+
+
       <div>
-        <p>Pronto para começar!</p>
+      escolherPagina()
 
-        <TesteForm
-          nome={this.pegaNome}
-          descricao={this.pegaDescricao}
-          preco={this.pegaPreco}
-          metodoPagamento={this.pegaMetodoPagamento}
-          tempoEntrega={this.pegaTempoEntrega}
-          enviarFormularioCompleto={this.enviarFormulario}
+      <TesteForm
+        nome={this.pegaNome}
+        descricao={this.pegaDescricao}
+        preco={this.pegaPreco}
+        metodoPagamento={this.pegaMetodoPagamento}
+        tempoEntrega={this.pegaTempoEntrega}
+        enviarFormularioCompleto={this.enviarFormulario}
 
-        />
-        <button onClick={this.todosOsCarros}>Checar todos os carros</button>
-        {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
+      />
+      <button onClick={this.todosOsCarros}>Checar todos os carros</button>
+      {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
 
-      </div>
-    )
+    </div>
+
+    }
+    </div>;
   }
 }
+
+
+
+export default App;
