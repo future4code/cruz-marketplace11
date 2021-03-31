@@ -14,4 +14,5 @@ class Compras extends React.Component {
   }
 }
 
+
 export default Compras;
