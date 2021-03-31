@@ -4,6 +4,7 @@ import Compras from "./components/Compras";
 import Vendas from "./components/Vendas";
 import Home from "./components/Home";
 import TesteForm from './components/TesteForm'
+import Detalhes from './components/Detalhes'
 import axios from 'axios'
 // import TesteForm from './TesteForm'
 
@@ -17,7 +18,7 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "home"
+    telaAtual: "detalhes"
 
   }
 
@@ -110,10 +111,6 @@ class App extends React.Component {
     }
   }
 
-
-
-
-
   render() {
     let escolherPagina = () => {
       switch (this.state.telaAtual) {
@@ -131,6 +128,11 @@ class App extends React.Component {
               paginaCompras={this.paginaCompras}
             />
           );
+		  case "detalhes":
+		  return ( <Detalhes
+		  
+		  
+		  />)
         default:
           return (
             <Home
@@ -150,7 +152,7 @@ class App extends React.Component {
       <div>
       {escolherPagina()}
 
-      <TesteForm
+      {/* <TesteForm
         nome={this.pegaNome}
         descricao={this.pegaDescricao}
         preco={this.pegaPreco}
@@ -158,7 +160,7 @@ class App extends React.Component {
         tempoEntrega={this.pegaTempoEntrega}
         enviarFormularioCompleto={this.enviarFormulario}
 
-      />
+      /> */}
       <button onClick={this.todosOsCarros}>Checar todos os carros</button>
       {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
 
