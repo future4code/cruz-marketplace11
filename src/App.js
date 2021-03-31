@@ -5,6 +5,7 @@ import Vendas from "./components/Vendas";
 import Home from "./components/Home";
 import TesteForm from './components/TesteForm'
 import axios from 'axios'
+import Footer from './components/Footer'
 // import TesteForm from './TesteForm'
 
 
@@ -161,7 +162,7 @@ class App extends React.Component {
       />
       <button onClick={this.todosOsCarros}>Checar todos os carros</button>
       {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
-
+      <Footer />
     </div>
 
     }
