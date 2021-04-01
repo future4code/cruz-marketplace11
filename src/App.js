@@ -169,7 +169,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
       <div>
       {escolherPagina()}
 
-      <TesteForm
+      {/* <TesteForm
         nome={this.pegaNome}
         descricao={this.pegaDescricao}
         preco={this.pegaPreco}
@@ -177,7 +177,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
         tempoEntrega={this.pegaTempoEntrega}
         enviarFormularioCompleto={this.enviarFormulario}
 
-      />
+      /> */}
 
 
 

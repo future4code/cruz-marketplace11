@@ -1,13 +1,16 @@
 import React from 'react'
-// import axios from 'axios'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
-
 
 export const ContainerBody = styled.div`
 max-width: 1440px;
 min-width: 1000px;
 margin:auto;
+background-color:#F3F0EC;
+`
+
+export const H1= styled.h1`
+margin-left:2%;
 
 `
 export const ContainerMainContent = styled.div`
@@ -30,6 +33,8 @@ width:50%;
 height:60px;
 display:flex;
 flex-direction:column;
+margin-left:3%;
+
 `
 
 export const ContainerFlex = styled.div`
@@ -53,10 +58,10 @@ width:30%;
 export const ContainerDescricao = styled.div`
 width:50%;
 border-top:1px solid black;
-border-bottom:1px solid black;
 height:400px;
 font-size:18px;
 padding-left:24px;
+margin-left:3%;
 `
 
 export const P = styled.p`
@@ -78,6 +83,7 @@ padding: 10% 25%;
 
 export const Img = styled.img`
 width:50%;
+margin-left:3%;
 `
 export const ContainerInternoForm = styled.div`
 width:80%;

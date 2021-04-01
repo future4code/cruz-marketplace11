@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import FooterLargo from '../../Footer'
 
 import {
-     ContainerBody, ContainerDescricao, ContainerFinal, ContainerMainContent, ContainerInternoForm,
+     ContainerBody,H1,ContainerDescricao, ContainerFinal, ContainerMainContent, ContainerInternoForm,
     ContainerInformacoesDoVeiculo, ContainerInformacoes2, ContainerInformacoes1
     , ContainerFormBox, ContainerForm, ContainerFlex, Img, Label, Input, P,
     Textarea, ButtonProposta, BoxBotao, DivParaBotao, ButtonHome
@@ -54,7 +54,7 @@ class Detalhes extends React.Component {
                 <div className="header">
                     Header
             </div>
-                <h1>{this.props.name} {this.props.modelo}Honda Civic 2020</h1>
+                <H1>{this.props.name} {this.props.modelo}Honda Civic 2020</H1>
 
                 <ContainerMainContent>
                     <Img src="https://cdn.motor1.com/images/mgl/MQWXX/s1/2020-honda-civic-si-coupe.jpg" />
