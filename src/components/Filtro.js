@@ -1,28 +1,30 @@
 import styled from 'styled-components'
 import React, { Component } from 'react'
 
-export class Filtro extends Component {
+class Filtro extends Component {
     render() {
         return (
             <Container>
-                <Title>Filtrar Pesquisas</Title>
+                <Title>Filtrar</Title>
 
-                <h2>Filtrar por Preço</h2>
+                <h2>Por Preço</h2>
                 <input onChange={this.props.atualizar} type="range" name="valorMin"
-                    value={this.props.valorMin} id="min" min="0" max="500000" step="1000" />
+                    value={this.props.valorMin} id="min" min="0" max="150000" step="1000" />
                 <label>Minino</label>
                 <input onChange={this.props.atualizar} type="range" name="valorMax"
-                    value={this.props.valorMax} id="max" min="1000" max="600000" step="1000" />
+                    value={this.props.valorMax} id="max" min="1000" max="300000" step="1000" />
                 <label>Máximo</label>
-                <br />
-                <h2>Filtrar por Título</h2>
-                <input onChange={this.props.atualizar} value={this.props.valor} placeholder="Pesquisar por titulo..." />
 
+                <h2>Por Nome</h2>
+                <input onChange={this.props.atualizar} value={this.props.valor} placeholder="Pesquisar por nome..." name ="filtraPorNome"/>
+                <br />
             </Container>
 
         )
     }
 }
+export default Filtro;
+
 
 const Container = styled.div`
   flex-basis: 20%;
