@@ -184,6 +184,7 @@ verState = ( carro) => {
 	const Card = this.state.carrosAVenda.map ( (carro) => {
     // let carroSelecionado = this.state.carroSelecionado
 		return (<TesteCard 
+      key={carro.id}
     
 		imagem = {carro.imagen}
 		modelo= {carro.Modelo}
@@ -217,7 +218,6 @@ verState = ( carro) => {
       /> */}
 
 
-
       <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
 	  <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
 	  <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
@@ -226,9 +226,7 @@ verState = ( carro) => {
 	  {Card}
 
     </ContainerParaTestes>
-	  <button onClick={this.detalhesCarro20}>Ver detalhes carro 20</button>
-      {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
-      {/* <Footer /> */}
+	  
     </div>
 
     }

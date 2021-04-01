@@ -57,7 +57,6 @@ class Detalhes extends React.Component {
             <ContainerBody>
                 <div className="header">
                     Header
-                    <button onClick={this.testeProps}>Vendo o que vem no props</button>
             </div>
                 <H1>{this.props.name} {this.props.modelo}</H1>
 
