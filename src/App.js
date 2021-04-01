@@ -20,7 +20,7 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "detalhes"
+    telaAtual: "home"
 
   }
   verCarrosAVenda =  () => {
@@ -62,7 +62,10 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
   }
 
   pegaMetodoPagamento = evt => {
-    this.setState({ metodoPagamento: evt.target.value })
+    this.setState({ metodoPagamento: evt.target.value }, () =>{
+		console.log(this.state.metodoPagamento)
+	})
+	
   }
 
   pegaTempoEntrega = evt => {
@@ -166,7 +169,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
       <div>
       {escolherPagina()}
 
-      {/* <TesteForm
+      <TesteForm
         nome={this.pegaNome}
         descricao={this.pegaDescricao}
         preco={this.pegaPreco}
@@ -174,7 +177,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
         tempoEntrega={this.pegaTempoEntrega}
         enviarFormularioCompleto={this.enviarFormulario}
 
-      /> */}
+      />
 
 
 
