@@ -9,7 +9,7 @@ import axios from 'axios'
 import Footer from './components/Footer'
 import TesteCard from "./components/TesteCard";
 // import TesteForm from './TesteForm'
-
+import styled from 'styled-components'
 
 class App extends React.Component {
 
@@ -20,7 +20,8 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "home"
+    telaAtual: "home",
+    carroSelecionado: {}
 
   }
   verCarrosAVenda =  () => {
@@ -40,7 +41,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
     this.setState({ telaAtual: "home" });
   };
 
-  paginaDetalhes = () => {
+  paginaDetalhes = ( id ) => {
 	  this.setState({ telaAtual: 'detalhes'})
   }
 
@@ -118,6 +119,30 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
     }
   }
 
+
+
+
+detalheCarro20 = () => {
+
+
+}
+
+verState = ( carro) => {
+  console.log( " o que esta vindo : ",carro)
+  this.setState({carroSelecionado:carro }, () => {
+    console.log("vendo se o state funcionou: ",this.state.carroSelecionado)
+  })
+  this.setState({ telaAtual: 'detalhes'})
+
+  
+}
+
+
+
+
+
+
+
   render() {
     let escolherPagina = () => {
       switch (this.state.telaAtual) {
@@ -137,6 +162,12 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
           );
 		  case "detalhes":
 		  return ( <Detalhes
+        valor={this.state.carroSelecionado.price}
+        metodoPagamento={this.state.carroSelecionado.paymentMethod}
+        prazo={this.state.carroSelecionado.shipping}
+        modelo={this.state.carroSelecionado.Modelo}
+        imagem={this.state.carroSelecionado.imagen}
+        descricao={this.state.carroSelecionado.description}
 		  pagina={this.paginaHome}
 		  
 		  />)
@@ -151,13 +182,19 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
     };
 
 	const Card = this.state.carrosAVenda.map ( (carro) => {
-		return <TesteCard 
+    // let carroSelecionado = this.state.carroSelecionado
+		return (<TesteCard 
+    
 		imagem = {carro.imagen}
 		modelo= {carro.Modelo}
 		nome= {carro.name}
 		preco = {carro.price}
+		// detalhes={() => this.paginaDetalhes(carro.id)}
+    detalhes={() =>this.verState(carro)}
 
 		/>
+    
+    )
 	})
 
     return  <div className="App">{
@@ -183,8 +220,13 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
 
       <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
 	  <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
-	  <button onClick={this.paginaDetalhes}>Ir para detalhes</button>
-	  {/* {Card} */}
+	  <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
+    <ContainerParaTestes>
+
+	  {Card}
+
+    </ContainerParaTestes>
+	  <button onClick={this.detalhesCarro20}>Ver detalhes carro 20</button>
       {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
       {/* <Footer /> */}
     </div>
@@ -197,3 +239,11 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
 
 
 export default App;
+
+
+const ContainerParaTestes = styled.div`
+display:flex;
+flex-direction:row;
+flex-wrap:wrap;
+width: 1280px;
+`
