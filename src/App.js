@@ -4,8 +4,10 @@ import Compras from "./components/Compras";
 import Vendas from "./components/Vendas";
 import Home from "./components/Home";
 import TesteForm from './components/TesteForm'
+import Detalhes from './components/Pages/Detalhes/Detalhes'
 import axios from 'axios'
 import Footer from './components/Footer'
+import TesteCard from "./components/TesteCard";
 // import TesteForm from './TesteForm'
 
 
@@ -21,12 +23,9 @@ class App extends React.Component {
     telaAtual: "home"
 
   }
-
-
-
-
-
-
+  verCarrosAVenda =  () => {
+console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
+  }
 
 
   paginaCompras = () => {
@@ -40,6 +39,10 @@ class App extends React.Component {
   paginaHome = () => {
     this.setState({ telaAtual: "home" });
   };
+
+  paginaDetalhes = () => {
+	  this.setState({ telaAtual: 'detalhes'})
+  }
 
 
   componentDidMount() {
@@ -59,7 +62,10 @@ class App extends React.Component {
   }
 
   pegaMetodoPagamento = evt => {
-    this.setState({ metodoPagamento: evt.target.value })
+    this.setState({ metodoPagamento: evt.target.value }, () =>{
+		console.log(this.state.metodoPagamento)
+	})
+	
   }
 
   pegaTempoEntrega = evt => {
@@ -70,7 +76,8 @@ class App extends React.Component {
     try {
       const todosOsCarros = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars ",
       )
-      console.log("TODOS OS CARROS/DADOS: ", todosOsCarros.data)
+      console.log("TODOS OS CARROS/DADOS: ", todosOsCarros.data.cars)
+	  this.setState({carrosAVenda:todosOsCarros.data.cars })
     } catch (error) {
       console.log("Erro encontrado : ", error)
     }
@@ -111,10 +118,6 @@ class App extends React.Component {
     }
   }
 
-
-
-
-
   render() {
     let escolherPagina = () => {
       switch (this.state.telaAtual) {
@@ -132,6 +135,11 @@ class App extends React.Component {
               paginaCompras={this.paginaCompras}
             />
           );
+		  case "detalhes":
+		  return ( <Detalhes
+		  pagina={this.paginaHome}
+		  
+		  />)
         default:
           return (
             <Home
@@ -141,6 +149,16 @@ class App extends React.Component {
           );
       }
     };
+
+	const Card = this.state.carrosAVenda.map ( (carro) => {
+		return <TesteCard 
+		imagem = {carro.imagen}
+		modelo= {carro.Modelo}
+		nome= {carro.name}
+		preco = {carro.price}
+
+		/>
+	})
 
     return  <div className="App">{
 
@@ -160,9 +178,15 @@ class App extends React.Component {
         enviarFormularioCompleto={this.enviarFormulario}
 
       />
-      <button onClick={this.todosOsCarros}>Checar todos os carros</button>
+
+
+
+      <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
+	  <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
+	  <button onClick={this.paginaDetalhes}>Ir para detalhes</button>
+	  {/* {Card} */}
       {/* <button onClick={this.deletarCarroAVenda}> Deletar carro 27</button> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
 
     }
