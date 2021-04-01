@@ -94,7 +94,9 @@ width:50%;
 border-top:1px solid black;
 border-bottom:1px solid black;
 /* padding-right:15%; */
-height:300px;
+height:400px;
+font-size:18px;
+padding-left:24px;
 /* background-color:blue; */
 `
 
@@ -148,7 +150,7 @@ export const Textarea = styled.textarea`
 width:80%;
 height:200px;
 border-radius:4px;
-
+font-size:16px;
 margin: 24px auto 42px;
 display:flex;
 resize:none;
@@ -159,6 +161,7 @@ export const Input = styled.input`
 /* flex-grow:2; */
 width:60%;
 border-radius:4px;
+padding-left:8px;
 `
 
 export const Label = styled.label`

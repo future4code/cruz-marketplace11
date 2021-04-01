@@ -55,7 +55,7 @@ pegaProposta = (evt) => {
                 <div className="header">
                     Header
             </div>
-                <h1>Honda Civic 2020 2.0</h1>
+                <h1>{this.props.name} {this.props.modelo}Honda Civic 2020</h1>
 
                 <ContainerMainContent>
                     <Img src="https://cdn.motor1.com/images/mgl/MQWXX/s1/2020-honda-civic-si-coupe.jpg" />
@@ -80,7 +80,7 @@ pegaProposta = (evt) => {
                                 <Input id="contato" placeholder="Telefone para contato" type="text" onChange={this.pegaTelefone} value={this.state.telefone}/>
 
                             </ContainerFormBox>
-                            <Textarea  placeholder="Digite aqui sua mensagem direta para o vendedor" onChange={this.pegaProposta}/>
+                            <Textarea  placeholder="Digite aqui sua mensagem direta para o vendedor" onChange={this.pegaProposta} value={this.state.proposta}/>
                             <DivParaBotao><ButtonProposta variant="contained" onClick={this.mensagemEnviada}>Enviar Proposta</ButtonProposta></DivParaBotao>
                         </ContainerInternoForm>
 
