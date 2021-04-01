@@ -14,6 +14,7 @@ function Face() {
   );
 }
 
+
 function Insta() {
   return (
     <Link href="https://www.instagram.com/labenu_/">
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh"
+
   },
 
   footer: {
@@ -57,7 +58,18 @@ export default function FooterLargo() {
     <div className={classes.root}>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography>Future Car Going Beyond.</Typography>
+          <Typography>
+          Future Car Going Beyond. 
+          </Typography>
+          <Typography>
+          Telefone: 11 4002-8922 
+          </Typography>
+          <Typography>
+          R. Pais Leme, 215    
+          </Typography>
+          <Typography>
+          faleconosco@futurecar.com 
+          </Typography>
           <Face />
           <Insta />
           <Copyright />
