@@ -1,50 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
 import FooterLargo from '../../Footer'
-// import Button from '@material-ui/core/Button'
 
-import {Container,ContainerBody,ContainerDescricao,ContainerFinal,ContainerMainContent,ContainerInternoForm,
-    ContainerInformacoesDoVeiculo,ContainerInformacoes2,ContainerInformacoes1
-    ,ContainerFormBox,ContainerForm,ContainerFlex,Img,Label,Input,P,
-    Textarea,ButtonProposta,BoxBotao,DivParaBotao,ButtonHome} from './Styles'
+import {
+     ContainerBody, ContainerDescricao, ContainerFinal, ContainerMainContent, ContainerInternoForm,
+    ContainerInformacoesDoVeiculo, ContainerInformacoes2, ContainerInformacoes1
+    , ContainerFormBox, ContainerForm, ContainerFlex, Img, Label, Input, P,
+    Textarea, ButtonProposta, BoxBotao, DivParaBotao, ButtonHome
+} from './Styles'
 
 
 class Detalhes extends React.Component {
 
 
-state = {
-    nome: "",
-    email: "",
-    telefone: "",
-    proposta: ""
-}
+    state = {
+        nome: "",
+        email: "",
+        telefone: "",
+        proposta: ""
+    }
 
 
-pegaEmail = (evt) => {
-    this.setState({email:evt.target.value})
-    console.log(evt.target.value)
-} 
-pegaTelefone = (evt) => {
-    this.setState({telefone:evt.target.value})
-    console.log(evt.target.value)
-} 
-pegaNome = (evt) => {
-    this.setState({nome:evt.target.value})
-    console.log(evt.target.value)
-} 
+    pegaEmail = (evt) => {
+        this.setState({ email: evt.target.value })
+        console.log(evt.target.value)
+    }
+    pegaTelefone = (evt) => {
+        this.setState({ telefone: evt.target.value })
+        console.log(evt.target.value)
+    }
+    pegaNome = (evt) => {
+        this.setState({ nome: evt.target.value })
+        console.log(evt.target.value)
+    }
 
-pegaProposta = (evt) => {
-    this.setState({proposta:evt.target.value})
-    console.log(evt.target.value)
-} 
-
-
+    pegaProposta = (evt) => {
+        this.setState({ proposta: evt.target.value })
+        console.log(evt.target.value)
+    }
 
 
     mensagemEnviada = (evt) => {
-       
+
         alert("Mensagem enviada para o vendedor! Agora é só aguardar o retorno.")
-        this.setState({proposta:"",nome:"",email:"",telefone:""})
+        this.setState({ proposta: "", nome: "", email: "", telefone: "" })
         evt.preventDefault()
     }
     render() {
@@ -65,7 +64,7 @@ pegaProposta = (evt) => {
                             <h3>Entre em contato com o vendedor </h3>
                             <ContainerFormBox>
                                 <Label for="nome">Nome:</Label>
-                                <Input id="nome" placeholder="Nome" type="text" onChange={this.pegaNome} value={this.state.nome}/>
+                                <Input id="nome" placeholder="Nome" type="text" onChange={this.pegaNome} value={this.state.nome} />
 
                             </ContainerFormBox>
 
@@ -77,10 +76,10 @@ pegaProposta = (evt) => {
 
                             <ContainerFormBox>
                                 <Label for="contato" >Contato:</Label>
-                                <Input id="contato" placeholder="Telefone para contato" type="text" onChange={this.pegaTelefone} value={this.state.telefone}/>
+                                <Input id="contato" placeholder="Telefone para contato" type="text" onChange={this.pegaTelefone} value={this.state.telefone} />
 
                             </ContainerFormBox>
-                            <Textarea  placeholder="Digite aqui sua mensagem direta para o vendedor" onChange={this.pegaProposta} value={this.state.proposta}/>
+                            <Textarea placeholder="Digite aqui sua mensagem direta para o vendedor" onChange={this.pegaProposta} value={this.state.proposta} />
                             <DivParaBotao><ButtonProposta variant="contained" onClick={this.mensagemEnviada}>Enviar Proposta</ButtonProposta></DivParaBotao>
                         </ContainerInternoForm>
 
@@ -103,13 +102,12 @@ pegaProposta = (evt) => {
                 </ContainerInformacoesDoVeiculo>
                 <ContainerFinal>
 
-               
-                <ContainerDescricao>
-                    <P>
 
-                        <h4>Descricao:</h4>
-                        {/* <br></br> */}
-                        {this.props.desricao}
+                    <ContainerDescricao>
+                        <P>
+
+                            <h4>Descricao:</h4>
+                            {this.props.desricao}
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut semper ipsum.
                         Vivamus iaculis et velit tincidunt interdum. Morbi facilisis, enim id laoreet efficitur,
                         odio tortor scelerisque leo, a efficitur quam velit sed magna. Vestibulum bibendum, felis in eleifend
@@ -121,13 +119,13 @@ pegaProposta = (evt) => {
                         non egestas. Donec gravida mollis euismod.
             </P>
 
-                </ContainerDescricao>
-                <BoxBotao>
-                <ButtonHome variant="contained" onClick={this.props.pagina}>Voltar para página inicial</ButtonHome>
+                    </ContainerDescricao>
+                    <BoxBotao>
+                        <ButtonHome variant="contained" onClick={this.props.pagina}>Voltar para página inicial</ButtonHome>
 
-                </BoxBotao>
+                    </BoxBotao>
                 </ContainerFinal>
-                <FooterLargo/>
+                <FooterLargo />
 
             </ContainerBody>)
     }
