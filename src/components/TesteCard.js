@@ -16,10 +16,11 @@ class TesteCard extends React.Component {
             <Img src={this.props.imagem} />
             <h3>{this.props.nome} {this.props.modelo}</h3>
             <p>{this.props.preco}</p>
-        
-        
-        </DivContainer>)
-    }
+            <button onClick={() => this.props.detalhes(this.props.id)}>Ir para detalhes</button>
+        {/* <p>{console.log("PROPS: ",this.props)}</p> */}
+    </DivContainer>
+    )
+        }
 }
 
 

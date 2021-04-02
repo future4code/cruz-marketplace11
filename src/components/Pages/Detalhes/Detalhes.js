@@ -46,6 +46,10 @@ class Detalhes extends React.Component {
         this.setState({ proposta: "", nome: "", email: "", telefone: "" })
         evt.preventDefault()
     }
+
+    testeProps = () => {
+        console.log("O que vem no props: ",this.props)
+    }
     render() {
 
 
@@ -54,10 +58,10 @@ class Detalhes extends React.Component {
                 <div className="header">
                     Header
             </div>
-                <H1>{this.props.name} {this.props.modelo}Honda Civic 2020</H1>
+                <H1>{this.props.name} {this.props.modelo}</H1>
 
                 <ContainerMainContent>
-                    <Img src="https://cdn.motor1.com/images/mgl/MQWXX/s1/2020-honda-civic-si-coupe.jpg" />
+                    <Img src={this.props.imagem} />
 
                     <ContainerForm>
                         <ContainerInternoForm>
@@ -89,15 +93,15 @@ class Detalhes extends React.Component {
 
                 <ContainerInformacoesDoVeiculo>
                     <ContainerFlex>
-                        <ContainerInformacoes1>Vendedor</ContainerInformacoes1>
+                        <ContainerInformacoes1>Valor</ContainerInformacoes1>
                         <ContainerInformacoes1>Método Pag.</ContainerInformacoes1>
                         <ContainerInformacoes1>Prazo</ContainerInformacoes1>
                     </ContainerFlex>
 
                     <ContainerFlex>
-                        <ContainerInformacoes2>{this.props.nome}Anderson</ContainerInformacoes2>
-                        <ContainerInformacoes2>{this.props.metodoPagamento}A vista</ContainerInformacoes2>
-                        <ContainerInformacoes2>{this.props.prazo}6 dias</ContainerInformacoes2>
+                        <ContainerInformacoes2>{this.props.valor}</ContainerInformacoes2>
+                        <ContainerInformacoes2>{this.props.metodoPagamento}</ContainerInformacoes2>
+                        <ContainerInformacoes2>{this.props.prazo} dias</ContainerInformacoes2>
                     </ContainerFlex>
                 </ContainerInformacoesDoVeiculo>
                 <ContainerFinal>
@@ -107,16 +111,7 @@ class Detalhes extends React.Component {
                         <P>
 
                             <h4>Descricao:</h4>
-                            {this.props.desricao}
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut semper ipsum.
-                        Vivamus iaculis et velit tincidunt interdum. Morbi facilisis, enim id laoreet efficitur,
-                        odio tortor scelerisque leo, a efficitur quam velit sed magna. Vestibulum bibendum, felis in eleifend
-                        malesuada, metus lacus efficitur ante, a vestibulum nunc nibh vel augue.
-
-                        Mauris diam arcu, eleifend in velit id, mattis malesuada purus. Sed mi turpis,
-                        elementum eget orci ac, ullamcorper ultrices mi. Nam consectetur rhoncus posuere. Suspendisse potenti.
-                        Nulla facilisi. Curabitur aliquet massa odio, id egestas tellus venenatis ac. Maecenas sollicitudin eu neque
-                        non egestas. Donec gravida mollis euismod.
+                            {this.props.descricao}
             </P>
 
                     </ContainerDescricao>
