@@ -21,11 +21,13 @@ class App extends React.Component {
     metodoPagamento: "",
     tempoEntrega: "",
     telaAtual: "home",
-    carroSelecionado: {}
+    carroSelecionado: {},
+    carroClicadoDetalhe: ""
 
   }
-  verCarrosAVenda =  () => {
-console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
+
+  verCarrosAVenda = () => {
+    console.log("CARROS A VENDA NO STATE: ", this.state.carrosAVenda)
   }
 
 
@@ -41,8 +43,8 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
     this.setState({ telaAtual: "home" });
   };
 
-  paginaDetalhes = ( id ) => {
-	  this.setState({ telaAtual: 'detalhes'})
+  paginaDetalhes = (id) => {
+    this.setState({ telaAtual: 'detalhes', carroClicadoDetalhe: id })
   }
 
 
@@ -63,10 +65,10 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
   }
 
   pegaMetodoPagamento = evt => {
-    this.setState({ metodoPagamento: evt.target.value }, () =>{
-		console.log(this.state.metodoPagamento)
-	})
-	
+    this.setState({ metodoPagamento: evt.target.value }, () => {
+      console.log(this.state.metodoPagamento)
+    })
+
   }
 
   pegaTempoEntrega = evt => {
@@ -78,7 +80,7 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
       const todosOsCarros = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars ",
       )
       console.log("TODOS OS CARROS/DADOS: ", todosOsCarros.data.cars)
-	  this.setState({carrosAVenda:todosOsCarros.data.cars })
+      this.setState({ carrosAVenda: todosOsCarros.data.cars })
     } catch (error) {
       console.log("Erro encontrado : ", error)
     }
@@ -122,20 +124,20 @@ console.log("CARROS A VENDA NO STATE: ",this.state.carrosAVenda)
 
 
 
-detalheCarro20 = () => {
+  detalheCarro20 = () => {
 
 
-}
+  }
 
-verState = ( carro) => {
-  console.log( " o que esta vindo : ",carro)
-  this.setState({carroSelecionado:carro }, () => {
-    console.log("vendo se o state funcionou: ",this.state.carroSelecionado)
-  })
-  this.setState({ telaAtual: 'detalhes'})
+  verState = (carro) => {
+    console.log(" o que esta vindo : ", carro)
+    this.setState({ carroSelecionado: carro }, () => {
+      console.log("vendo se o state funcionou: ", this.state.carroSelecionado)
+    })
+    this.setState({ telaAtual: 'detalhes' })
 
-  
-}
+
+  }
 
 
 
@@ -151,6 +153,7 @@ verState = ( carro) => {
             <Compras
               paginaHome={this.paginaHome}
               paginaVendas={this.paginaVendas}
+              paginaDetalhes={this.paginaDetalhes}
             />
           );
         case "paginaVendas":
@@ -160,17 +163,18 @@ verState = ( carro) => {
               paginaCompras={this.paginaCompras}
             />
           );
-		  case "detalhes":
-		  return ( <Detalhes
-        valor={this.state.carroSelecionado.price}
-        metodoPagamento={this.state.carroSelecionado.paymentMethod}
-        prazo={this.state.carroSelecionado.shipping}
-        modelo={this.state.carroSelecionado.Modelo}
-        imagem={this.state.carroSelecionado.imagen}
-        descricao={this.state.carroSelecionado.description}
-		  pagina={this.paginaHome}
-		  
-		  />)
+        case "detalhes":
+          return (<Detalhes
+            // valor={this.state.carroSelecionado.price}
+            // metodoPagamento={this.state.carroSelecionado.paymentMethod}
+            // prazo={this.state.carroSelecionado.shipping}
+            // modelo={this.state.carroSelecionado.Modelo}
+            // imagem={this.state.carroSelecionado.imagen}
+            // descricao={this.state.carroSelecionado.description}
+            paginaCompras={this.paginaCompras}
+            id={this.state.carroClicadoDetalhe}
+
+          />)
         default:
           return (
             <Home
@@ -181,33 +185,33 @@ verState = ( carro) => {
       }
     };
 
-	const Card = this.state.carrosAVenda.map ( (carro) => {
-    // let carroSelecionado = this.state.carroSelecionado
-		return (<TesteCard 
-      key={carro.id}
-    
-		imagem = {carro.imagen}
-		modelo= {carro.Modelo}
-		nome= {carro.name}
-		preco = {carro.price}
-		// detalhes={() => this.paginaDetalhes(carro.id)}
-    detalhes={() =>this.verState(carro)}
+    const Card = this.state.carrosAVenda.map((carro) => {
+      // let carroSelecionado = this.state.carroSelecionado
+      return (<TesteCard
+        key={carro.id}
 
-		/>
-    
-    )
-	})
+        imagem={carro.imagen}
+        modelo={carro.Modelo}
+        nome={carro.name}
+        preco={carro.price}
+        // detalhes={() => this.paginaDetalhes(carro.id)}
+        detalhes={() => this.verState(carro)}
 
-    return  <div className="App">{
+      />
+
+      )
+    })
+
+    return <div className="App">{
 
 
 
 
 
       <div>
-      {escolherPagina()}
+        {escolherPagina()}
 
-      {/* <TesteForm
+        {/* <TesteForm
         nome={this.pegaNome}
         descricao={this.pegaDescricao}
         preco={this.pegaPreco}
@@ -218,16 +222,16 @@ verState = ( carro) => {
       /> */}
 
 
-      <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
-	  <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
-	  <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
-    <ContainerParaTestes>
+        <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
+        <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
+        <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
+        <ContainerParaTestes>
 
-	  {Card}
+          {Card}
 
-    </ContainerParaTestes>
-	  
-    </div>
+        </ContainerParaTestes>
+
+      </div>
 
     }
     </div>;
