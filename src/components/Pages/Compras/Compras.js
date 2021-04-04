@@ -6,6 +6,7 @@ import Ordem from "../../Ordem";
 import axios from "axios";
 import TesteCard from "../../TesteCard";
 import Header from '../../Header'
+import FooterLargo from "../../Footer";
 class Compras extends React.Component {
   state = {
     carrosAVenda: [],
@@ -116,6 +117,7 @@ class Compras extends React.Component {
 
         <button onClick={this.props.paginaHome}>Voltar para Home</button>
         <button onClick={this.props.paginaVendas}>Ir para Vendas</button>
+        <FooterLargo />
       </div>
     );
   }

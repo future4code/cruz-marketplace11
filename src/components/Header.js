@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 // import {Car} from '@styled-icons/boxicons-regular/Car'
 
 class Header extends React.Component {
@@ -10,6 +11,7 @@ class Header extends React.Component {
 
             <Container>
 {/* <Car/> */}
+<DirectionsCarIcon style={{ fontSize: 100}}  />
 <Button onClick={this.props.paginaHome}>Página Inicial</Button>
 <Button onClick={this.props.paginaVendas}>Página Vendas</Button>
 <Button onClick={this.props.paginaCompras}>Página Compras</Button>
