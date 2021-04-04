@@ -1,18 +1,17 @@
 // import "./styles.css";
 import React from "react";
-import Compras from "./components/Compras";
-import Vendas from "./components/Vendas";
 import Home from "./components/Home";
 import TesteForm from './components/TesteForm'
-import Detalhes from './components/Pages/Detalhes/Detalhes'
 import axios from 'axios'
 import Footer from './components/Footer'
 import TesteCard from "./components/TesteCard";
-// import TesteForm from './TesteForm'
 import styled from 'styled-components'
+import Compras from  "./components/Pages/Compras/Compras";
+import Vendas from   "./components/Pages/Vendas/Vendas";
+import Detalhes from './components/Pages/Detalhes/Detalhes'
 
 class App extends React.Component {
-
+// {/* <Vendas */}
   state = {
     carrosAVenda: [],
     nome: "",
@@ -20,7 +19,7 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "paginaCompras",
+    telaAtual: "paginaVendas",
     carroSelecionado: {},
     carroClicadoDetalhe: ""
 
@@ -33,6 +32,7 @@ class App extends React.Component {
 
   paginaCompras = () => {
     this.setState({ telaAtual: "paginaCompras" });
+    console.log("entrou em compras?")
   };
 
   paginaVendas = () => {
@@ -55,14 +55,19 @@ class App extends React.Component {
 
   pegaNome = (evt) => {
     this.setState({ nome: evt.target.value })
+    console.log("entrada: ",evt.target.value)
   }
 
   pegaDescricao = (evt) => {
     this.setState({ descricao: evt.target.value })
+    console.log("entrada: ",evt.target.value)
+
   }
 
   pegaPreco = evt => {
     this.setState({ preco: evt.target.value })
+    console.log("entrada: ",evt.target.value)
+
   }
 
   pegaMetodoPagamento = evt => {
@@ -74,6 +79,8 @@ class App extends React.Component {
 
   pegaTempoEntrega = evt => {
     this.setState({ tempoEntrega: evt.target.value })
+    console.log("entrada: ",evt.target.value)
+
   }
 
   pegarTodosOsCarros = async () => {
@@ -97,17 +104,19 @@ class App extends React.Component {
       paymentMethod: this.state.metodoPagamento,
       shipping: this.state.tempoEntrega
     }
+if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
+  try {
+    console.log("BODY : ", body)
+    const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars",
+      body)
+    console.log("response, o q ta indo: ", response)
 
-    try {
-      console.log("BODY : ", body)
-      const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars",
-        body)
-      console.log("response, o q ta indo: ", response)
-
-    } catch (error) {
-      console.log("Erro: ", error)
-    }
+  } catch (error) {
+    console.log("Erro: ", error)
   }
+}
+}
+    
 
   deletarCarroAVenda = async (id) => {
     if (window.confirm("Voce tem certeza que quer deletar este veículo?")) {
@@ -168,6 +177,26 @@ class App extends React.Component {
             <Vendas
               paginaHome={this.paginaHome}
               paginaCompras={this.paginaCompras}
+              paginvaVendas={this.paginaVendas}
+
+              nome={this.pegaNome}
+              descricao={this.pegaDescricao}
+              preco={this.pegaPreco}
+              metodoPagamento={this.pegaMetodoPagamento}
+              tempoEntrega={this.pegaTempoEntrega}
+              enviarFormularioCompleto={this.enviarFormulario}
+
+
+
+
+
+
+
+
+
+
+
+
             />
           );
         case "detalhes":

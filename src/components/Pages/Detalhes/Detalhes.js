@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import FooterLargo from '../../Footer'
+import Header from '../../Header'
+
 
 import {
      ContainerBody,H1,ContainerDescricao, ContainerFinal, ContainerMainContent, ContainerInternoForm,
@@ -58,9 +60,14 @@ class Detalhes extends React.Component {
 
         return (
             <ContainerBody>
-                <div className="header">
+                {/* <div className="header">
                     Header
-            </div>
+            </div> */}
+            <Header
+          paginaHome={this.props.paginaHome}
+          paginaCompras={this.props.paginaCompras}
+          paginaVendas={this.props.paginaVendas}
+        />
                 <H1>{this.props.name} {this.props.modelo}</H1>
 
                 <ContainerMainContent>
@@ -71,22 +78,22 @@ class Detalhes extends React.Component {
                             <h3>Entre em contato com o vendedor </h3>
                             <ContainerFormBox>
                                 <Label for="nome">Nome:</Label>
-                                <Input id="nome" placeholder="Nome" type="text" onChange={this.pegaNome} value={this.state.nome} />
+                                <Input id="nome" placeholder="Nome" type="text" required onChange={this.pegaNome} value={this.state.nome} />
 
                             </ContainerFormBox>
 
                             <ContainerFormBox>
                                 <Label for="email" >E-mail:</Label>
-                                <Input id="email" placeholder="Email" type="text" onChange={this.pegaEmail} value={this.state.email} />
+                                <Input id="email" placeholder="Email" type="text" required onChange={this.pegaEmail} value={this.state.email} />
 
                             </ContainerFormBox>
 
                             <ContainerFormBox>
                                 <Label for="contato" >Contato:</Label>
-                                <Input id="contato" placeholder="Telefone para contato" type="text" onChange={this.pegaTelefone} value={this.state.telefone} />
+                                <Input id="contato" placeholder="Telefone para contato" required type="text" onChange={this.pegaTelefone} value={this.state.telefone} />
 
                             </ContainerFormBox>
-                            <Textarea placeholder="Digite aqui sua mensagem direta para o vendedor" onChange={this.pegaProposta} value={this.state.proposta} />
+                            <Textarea placeholder="Digite aqui sua mensagem direta para o vendedor" required onChange={this.pegaProposta} value={this.state.proposta} />
                             <DivParaBotao><ButtonProposta variant="contained" onClick={this.mensagemEnviada}>Enviar Proposta</ButtonProposta></DivParaBotao>
                         </ContainerInternoForm>
 

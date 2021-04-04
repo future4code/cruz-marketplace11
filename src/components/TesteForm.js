@@ -13,7 +13,7 @@ createUser
 
         return ( <div>
 
-            <div>
+            <Container>
                 <Div>
                 <label for="nome">Nome do vendedor:</label>
                 <Input onChange={this.props.nome} type='text' id="nome"/>
@@ -48,7 +48,7 @@ createUser
                <ButtonEnviar variant="contained" onClick={this.props.enviarFormularioCompleto}>Enviar o formulario</ButtonEnviar>
 
                 </DivButton>
-            </div>
+            </Container>
 
         </div>)
     }
@@ -57,21 +57,39 @@ createUser
 export default TesteForm
 
 
+const Container = styled.div`
+max-width: 900px;
+/* min-width: 1000px; */
+background-color:#F6AE2D;
+margin:auto;
+display:flex;
+flex-direction:column;
+justify-content:center;
+height:300px;
+`
+
 
 const Div =styled.div`
 display:flex;
 justify-content:space-between;
 width:600px;
+margin:auto;
+color:white;
 `
 const Input = styled.input`
 width:300px;
+border-radius:2px;
 `
 const Select = styled.select`
 width:307.5px;
+border-radius:2px;
+
 `
 const Textarea = styled.textarea`
 resize:none;
 width: 300px;
+border-radius:4px;
+
 `
 const ButtonEnviar = styled(Button)`
 background-color:red;
@@ -83,4 +101,6 @@ width:600px;
 height:100px;
 align-items:center;
 justify-content:center;
+margin:auto;
 `
+

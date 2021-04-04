@@ -1,12 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
 import styled from "styled-components";
-import Filtro from "./Filtro";
-import Ordem from "./Ordem";
+import Filtro from "../../Filtro"
+import Ordem from "../../Ordem";
 import axios from "axios";
-import TesteCard from "./TesteCard";
-
-
+import TesteCard from "../../TesteCard";
+import Header from '../../Header'
 class Compras extends React.Component {
   state = {
     carrosAVenda: [],
@@ -99,7 +98,12 @@ class Compras extends React.Component {
 
     return (
       <div>
-        <p>Página de comprassss</p>
+        {/* <p>Página de comprassss</p> */}
+        <Header
+          paginaHome={this.props.paginaHome}
+          paginaCompras={this.props.paginaCompras}
+          paginaVendas={this.props.paginaVendas}
+        />
         <Container>
           <ContainerPesquisar>
             <Ordem />
