@@ -98,7 +98,7 @@ class Compras extends React.Component {
 
 
     return (
-      <div>
+      <ContainerBody>
         {/* <p>Página de comprassss</p> */}
         <Header
           paginaHome={this.props.paginaHome}
@@ -118,7 +118,9 @@ class Compras extends React.Component {
         <button onClick={this.props.paginaHome}>Voltar para Home</button>
         <button onClick={this.props.paginaVendas}>Ir para Vendas</button>
         <FooterLargo />
-      </div>
+      
+
+      </ContainerBody>
     );
   }
 }
@@ -136,6 +138,12 @@ const ContainerPesquisar = styled.div`
   display:flex;
   flex-flow: column-reverse;
   
+`
+
+const ContainerBody = styled.div`
+max-width: 1440px;
+min-width: 1000px;
+margin:auto;
 `
 
 const Container = styled.div`
