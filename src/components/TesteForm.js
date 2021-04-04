@@ -14,14 +14,15 @@ createUser
         return ( <div>
 
             <Container>
+                <H2>Cadastrar veículo</H2>
                 <Div>
                 <label for="nome">Marca do veículo:</label>
-                <Input onChange={this.props.nome} type='text' id="nome"/>
+                <Input onChange={this.props.nome} type='text' id="nome" placeholder="Ex: Ford, Audi, etc..."/>
                 </Div>
                
                 <Div>
                 <label for="preco">Preco</label>
-                <Input onChange={this.props.preco} type='text' id="preco"/>
+                <Input onChange={this.props.preco} type='text' id="preco" placeholder="Digite o valor em reais"/>
                 </Div>
                 <Div>
                 <label for="metodoPagamento">Método de pagamento: </label>
@@ -37,12 +38,12 @@ createUser
                 </Div>
                 <Div>
                 <label for="tempoEntrega">Tempo de entrega:</label>
-                <Input onChange={this.props.tempoEntrega} type='text' id="tempoEntrega"/>
+                <Input onChange={this.props.tempoEntrega} type='text' id="tempoEntrega" placeholder="Valor em dias"/>
                 </Div>
 
                 <Div>
                 <label for="descricao">Descrição</label>
-                <Textarea  onChange={this.props.descricao} type='text' id="descricao" />
+                <Textarea  onChange={this.props.descricao} type='text' id="descricao" placeholder="Modelo do veículo, estado, ano, etc..."/>
                 </Div>
                 <DivButton>
                <ButtonEnviar variant="contained" onClick={this.props.enviarFormularioCompleto}>Enviar o formulario</ButtonEnviar>
@@ -65,7 +66,12 @@ margin:auto;
 display:flex;
 flex-direction:column;
 justify-content:center;
-height:300px;
+height:400px;
+`
+const H2 = styled.h2`
+margin-left:24px;
+color:white;
+
 `
 
 
@@ -81,7 +87,7 @@ width:300px;
 border-radius:2px;
 `
 const Select = styled.select`
-width:307.5px;
+width:304.5px;
 border-radius:2px;
 
 `
