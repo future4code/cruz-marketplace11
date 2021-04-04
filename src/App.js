@@ -19,7 +19,7 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "paginaVendas",
+    telaAtual: "paginaHome",
     carroSelecionado: {},
     carroClicadoDetalhe: ""
 
@@ -27,6 +27,12 @@ class App extends React.Component {
 
   verCarrosAVenda = () => {
     console.log("CARROS A VENDA NO STATE: ", this.state.carrosAVenda)
+
+
+  }
+
+  carrosPaginaHome = () => {
+    console.log("carros a venda lenght:", this.state.carrosAVenda.length)
   }
 
 
@@ -185,18 +191,6 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
               metodoPagamento={this.pegaMetodoPagamento}
               tempoEntrega={this.pegaTempoEntrega}
               enviarFormularioCompleto={this.enviarFormulario}
-
-
-
-
-
-
-
-
-
-
-
-
             />
           );
         case "detalhes":
@@ -217,6 +211,12 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
             <Home
               paginaCompras={this.paginaCompras}
               paginaVendas={this.paginaVendas}
+              verState={(carro) => {
+                this.verState(carro)
+              }
+            }
+
+              
             />
           );
       }
@@ -260,9 +260,9 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
       /> */}
 
 
-        <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
+        {/* <button onClick={this.pegarTodosOsCarros}>Checar todos os carros</button>
         <button onClick={this.verCarrosAVenda}>Checar no log carros a venda</button>
-        <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
+        <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button> */}
         <ContainerParaTestes>
 
           {/* {Card} */}
