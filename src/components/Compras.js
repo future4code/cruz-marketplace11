@@ -12,13 +12,28 @@ class Compras extends React.Component {
     carrosAVenda: [],
     nome: "",
     preco: "",
-    carroSelecionado: {},
-
+    carroSelecionado: [],
     descricao: "",
     metodoPagamento: "",
     tempoEntrega: "",
 
   }
+
+
+  verState = (carro) => {
+    console.log(" o que esta vindo  state dentro do compras: ", carro)
+    this.setState({ carroSelecionado: carro })
+    
+      console.log("vendo se o state funcionou: ", this.state.carroSelecionado)
+    
+    // this.setState({ telaAtual: 'detalhes' })
+
+
+  }
+
+
+
+
 
   verCarrosAVenda = () => {
     console.log("CARROS A VENDA NO STATE: ", this.state.carrosAVenda)
@@ -45,20 +60,41 @@ class Compras extends React.Component {
 
     const Card = this.state.carrosAVenda.map((carro) => {
       // let carroSelecionado = this.state.carroSelecionado
-      return (<TesteCard
-        key={carro.id}
+      return (
+      
+      <div>
 
+{/* {console.log(this.state.carrosAVenda[2])} */}
+
+      
+      
+      <TesteCard
+        key={carro.id}
         imagem={carro.imagen}
         modelo={carro.Modelo}
         nome={carro.name}
-        preco={carro.price}
-        onClick={() => this.paginaDetalhes(carro.id)}
-      //detalhes={() => this.verState(carro)}
+        valor={carro.price}
+        // onClick={() => this.paginaDetalhes(carro.id)}
+        id={carro}
+// detalhes={(carro) => console.log("passei o id e vendo q ta vindo: ",carro)}
+
+      detalhes={() => {
+
+        console.log("carro : ",carro)
+        // console.log("THIS: ",this)
+        this.verState( carro, () => console.log("carro selecionado: ",this.state.carroSelecionado))
+        
+        console.log("THIS PROPS: ",this.props)
+        this.props.verState(carro)
+      }
+      }
 
       />
-
+</div>
       )
     })
+
+    
 
 
     return (
