@@ -20,7 +20,7 @@ class App extends React.Component {
     preco: "",
     metodoPagamento: "",
     tempoEntrega: "",
-    telaAtual: "home",
+    telaAtual: "paginaCompras",
     carroSelecionado: {},
     carroClicadoDetalhe: ""
 
@@ -41,6 +41,7 @@ class App extends React.Component {
 
   paginaHome = () => {
     this.setState({ telaAtual: "home" });
+    console.log("haha")
   };
 
   paginaDetalhes = (id) => {
@@ -154,6 +155,12 @@ class App extends React.Component {
               paginaHome={this.paginaHome}
               paginaVendas={this.paginaVendas}
               paginaDetalhes={this.paginaDetalhes}
+              detalhes={console.log("Eita")}
+              verState={(carro) => {
+                this.verState(carro)
+              }
+            }
+
             />
           );
         case "paginaVendas":
@@ -165,14 +172,15 @@ class App extends React.Component {
           );
         case "detalhes":
           return (<Detalhes
-            // valor={this.state.carroSelecionado.price}
-            // metodoPagamento={this.state.carroSelecionado.paymentMethod}
-            // prazo={this.state.carroSelecionado.shipping}
-            // modelo={this.state.carroSelecionado.Modelo}
-            // imagem={this.state.carroSelecionado.imagen}
-            // descricao={this.state.carroSelecionado.description}
+            valor={this.state.carroSelecionado.price}
+            metodoPagamento={this.state.carroSelecionado.paymentMethod}
+            prazo={this.state.carroSelecionado.shipping}
+            modelo={this.state.carroSelecionado.Modelo}
+            imagem={this.state.carroSelecionado.imagen}
+            descricao={this.state.carroSelecionado.description}
             paginaCompras={this.paginaCompras}
             id={this.state.carroClicadoDetalhe}
+            pagina={this.paginaHome}
 
           />)
         default:
@@ -187,7 +195,8 @@ class App extends React.Component {
 
     const Card = this.state.carrosAVenda.map((carro) => {
       // let carroSelecionado = this.state.carroSelecionado
-      return (<TesteCard
+      return (
+      <TesteCard
         key={carro.id}
 
         imagem={carro.imagen}
@@ -227,7 +236,7 @@ class App extends React.Component {
         <button onClick={this.paginaDetalhes}>Ir para detalheszzzzzzz</button>
         <ContainerParaTestes>
 
-          {Card}
+          {/* {Card} */}
 
         </ContainerParaTestes>
 

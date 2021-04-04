@@ -53,6 +53,9 @@ class Detalhes extends React.Component {
     render() {
 
 
+        
+
+
         return (
             <ContainerBody>
                 <div className="header">

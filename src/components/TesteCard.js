@@ -18,6 +18,10 @@ class TesteCard extends React.Component {
                 <p>{this.props.preco}</p>
                 <button onClick={() => this.props.detalhes(this.props.id)}>Ir para detalhes</button>
                 {/* <p>{console.log("PROPS: ",this.props)}</p> */}
+                {/* <button onClick={() => console.log("PROPS neste card: ",this.props)}>Ir para detalhes</button> */}
+
+
+
             </DivContainer>
         )
     }
