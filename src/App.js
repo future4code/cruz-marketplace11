@@ -6,12 +6,12 @@ import axios from 'axios'
 import Footer from './components/Footer'
 import TesteCard from "./components/TesteCard";
 import styled from 'styled-components'
-import Compras from  "./components/Pages/Compras/Compras";
-import Vendas from   "./components/Pages/Vendas/Vendas";
+import Compras from "./components/Pages/Compras/Compras";
+import Vendas from "./components/Pages/Vendas/Vendas";
 import Detalhes from './components/Pages/Detalhes/Detalhes'
 
 class App extends React.Component {
-// {/* <Vendas */}
+  // {/* <Vendas */}
   state = {
     carrosAVenda: [],
     nome: "",
@@ -61,18 +61,18 @@ class App extends React.Component {
 
   pegaNome = (evt) => {
     this.setState({ nome: evt.target.value })
-    console.log("entrada: ",evt.target.value)
+    console.log("entrada: ", evt.target.value)
   }
 
   pegaDescricao = (evt) => {
     this.setState({ descricao: evt.target.value })
-    console.log("entrada: ",evt.target.value)
+    console.log("entrada: ", evt.target.value)
 
   }
 
   pegaPreco = evt => {
     this.setState({ preco: evt.target.value })
-    console.log("entrada: ",evt.target.value)
+    console.log("entrada: ", evt.target.value)
 
   }
 
@@ -85,7 +85,7 @@ class App extends React.Component {
 
   pegaTempoEntrega = evt => {
     this.setState({ tempoEntrega: evt.target.value })
-    console.log("entrada: ",evt.target.value)
+    console.log("entrada: ", evt.target.value)
 
   }
 
@@ -110,19 +110,19 @@ class App extends React.Component {
       paymentMethod: this.state.metodoPagamento,
       shipping: this.state.tempoEntrega
     }
-if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
-  try {
-    console.log("BODY : ", body)
-    const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars",
-      body)
-    console.log("response, o q ta indo: ", response)
+    if (window.confirm("Conferiu os dados e pretende cadastrar este carro?")) {
+      try {
+        console.log("BODY : ", body)
+        const response = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars",
+          body)
+        console.log("response, o q ta indo: ", response)
 
-  } catch (error) {
-    console.log("Erro: ", error)
+      } catch (error) {
+        console.log("Erro: ", error)
+      }
+    }
   }
-}
-}
-    
+
 
   deletarCarroAVenda = async (id) => {
     if (window.confirm("Voce tem certeza que quer deletar este veículo?")) {
@@ -174,7 +174,7 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
               verState={(carro) => {
                 this.verState(carro)
               }
-            }
+              }
 
             />
           );
@@ -201,7 +201,9 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
             modelo={this.state.carroSelecionado.Modelo}
             imagem={this.state.carroSelecionado.imagen}
             descricao={this.state.carroSelecionado.description}
+            paginaHome={this.paginaHome}
             paginaCompras={this.paginaCompras}
+            paginvaVendas={this.paginaVendas}
             id={this.state.carroClicadoDetalhe}
             pagina={this.paginaHome}
 
@@ -214,9 +216,7 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
               verState={(carro) => {
                 this.verState(carro)
               }
-            }
-
-              
+              }
             />
           );
       }
@@ -225,17 +225,17 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
     const Card = this.state.carrosAVenda.map((carro) => {
       // let carroSelecionado = this.state.carroSelecionado
       return (
-      <TesteCard
-        key={carro.id}
+        <TesteCard
+          key={carro.id}
 
-        imagem={carro.imagen}
-        modelo={carro.Modelo}
-        nome={carro.name}
-        preco={carro.price}
-        // detalhes={() => this.paginaDetalhes(carro.id)}
-        detalhes={() => this.verState(carro)}
+          imagem={carro.imagen}
+          modelo={carro.Modelo}
+          nome={carro.name}
+          preco={carro.price}
+          // detalhes={() => this.paginaDetalhes(carro.id)}
+          detalhes={() => this.verState(carro)}
 
-      />
+        />
 
       )
     })

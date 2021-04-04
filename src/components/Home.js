@@ -109,5 +109,5 @@ display:flex;
 width:930px;
 flex-wrap:wrap;
 margin:auto;
-background-color:#F26419;
+/* background-color:#F26419; */
 `
