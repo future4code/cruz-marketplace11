@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import FooterLargo from '../../Footer'
+import Header from '../../Header'
+
 
 import {
      ContainerBody,H1,ContainerDescricao, ContainerFinal, ContainerMainContent, ContainerInternoForm,
@@ -58,9 +60,14 @@ class Detalhes extends React.Component {
 
         return (
             <ContainerBody>
-                <div className="header">
+                {/* <div className="header">
                     Header
-            </div>
+            </div> */}
+            <Header
+          paginaHome={this.props.paginaHome}
+          paginaCompras={this.props.paginaCompras}
+          paginaVendas={this.props.paginaVendas}
+        />
                 <H1>{this.props.name} {this.props.modelo}</H1>
 
                 <ContainerMainContent>

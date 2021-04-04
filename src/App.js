@@ -1,16 +1,14 @@
 // import "./styles.css";
 import React from "react";
-import Compras from "./components/Compras";
-// import Vendas from "./components/Pages/Vendas/Vendas";
 import Home from "./components/Home";
 import TesteForm from './components/TesteForm'
-import Detalhes from './components/Pages/Detalhes/Detalhes'
 import axios from 'axios'
 import Footer from './components/Footer'
 import TesteCard from "./components/TesteCard";
-// import TesteForm from './TesteForm'
 import styled from 'styled-components'
-import Vendas from "./components/Pages/Vendas/Vendas";
+import Compras from  "./components/Pages/Compras/Compras";
+import Vendas from   "./components/Pages/Vendas/Vendas";
+import Detalhes from './components/Pages/Detalhes/Detalhes'
 
 class App extends React.Component {
 // {/* <Vendas */}
@@ -34,6 +32,7 @@ class App extends React.Component {
 
   paginaCompras = () => {
     this.setState({ telaAtual: "paginaCompras" });
+    console.log("entrou em compras?")
   };
 
   paginaVendas = () => {
@@ -178,6 +177,7 @@ if(window.confirm("Conferiu os dados e pretende cadastrar este carro?")){
             <Vendas
               paginaHome={this.paginaHome}
               paginaCompras={this.paginaCompras}
+              paginvaVendas={this.paginaVendas}
 
               nome={this.pegaNome}
               descricao={this.pegaDescricao}
