@@ -58,6 +58,9 @@ background-color:#F26419;
 /* background-color:red; */
 height:30px;
 border-radius:8px;
+&:hover{
+    cursor:pointer;
+}
 
 
 

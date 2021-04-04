@@ -29,9 +29,15 @@ class Home extends React.Component {
       const todosOsCarros = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars ",
       )
       let arrayAleatorio = []
+      let carroProvisorioRetirado 
       for (let i = 0; i < 6; i++) {
+        carroProvisorioRetirado= Math.floor(Math.random() * todosOsCarros.data.cars.length)
+        console.log("carro prov retirado n° q sai: ",carroProvisorioRetirado)
         arrayAleatorio.push(todosOsCarros.data.cars[Math.floor(Math.random() * todosOsCarros.data.cars.length)]
+        // arrayAleatorio.push(todosOsCarros.data.cars.splice(carroProvisorioRetirado,1)
         )
+        console.log("array aleatorio : ",arrayAleatorio)
+
       }
       console.log("array aleatorio: ", arrayAleatorio)
       this.setState({ carrosPaginaHome: arrayAleatorio })
