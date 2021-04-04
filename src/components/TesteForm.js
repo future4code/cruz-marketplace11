@@ -15,7 +15,7 @@ createUser
 
             <Container>
                 <Div>
-                <label for="nome">Nome do vendedor:</label>
+                <label for="nome">Marca do veículo:</label>
                 <Input onChange={this.props.nome} type='text' id="nome"/>
                 </Div>
                
