@@ -17,7 +17,7 @@ class App extends React.Component {
     nome: "",
     descricao: "",
     preco: "",
-    metodoPagamento: "",
+    metodoPagamento: "PIX",
     tempoEntrega: "",
     telaAtual: "paginaHome",
     carroSelecionado: {},

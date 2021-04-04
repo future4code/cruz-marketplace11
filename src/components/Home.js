@@ -80,7 +80,7 @@ class Home extends React.Component {
 
 
     return (
-      <div>
+      <ContainerBody>
         <Header
           paginaHome={this.props.paginaHome}
           paginaCompras={this.props.paginaCompras}
@@ -96,7 +96,7 @@ class Home extends React.Component {
 
 
         <FooterLargo />
-      </div>
+      </ContainerBody>
     );
   }
 }
@@ -110,4 +110,12 @@ width:930px;
 flex-wrap:wrap;
 margin:auto;
 /* background-color:#F26419; */
+`
+
+
+
+const ContainerBody = styled.div`
+max-width: 1440px;
+min-width: 1000px;
+margin:auto;
 `

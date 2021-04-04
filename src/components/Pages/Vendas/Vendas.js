@@ -3,11 +3,11 @@ import { render } from "react-dom";
 import FooterLargo from "../../Footer";
 import Header from "../../Header";
 import TesteForm from '../../TesteForm'
-
+import styled from 'styled-components'
 class Vendas extends React.Component {
   render() {
     return (
-      <div>
+      <Container>
         <Header
           paginaHome={this.props.paginaHome}
           paginaCompras={this.props.paginaCompras}
@@ -34,9 +34,16 @@ class Vendas extends React.Component {
 
         />
         <FooterLargo />
-      </div>
+      </Container>
     );
   }
 }
 
 export default Vendas;
+
+
+const Container = styled.div`
+max-width: 1440px;
+min-width: 1000px;
+margin:auto;
+`
