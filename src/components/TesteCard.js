@@ -14,8 +14,8 @@ class TesteCard extends React.Component {
         return (
             <DivContainer>
                 <Img src={this.props.imagem} />
-                <h3>{this.props.nome} </h3>
-             {this.props.modelo?<h2>{this.props.modelo} </h2> : <h2>Não especificado</h2>}   
+                <H4>{this.props.nome} </H4>
+             {this.props.modelo?<H3>{this.props.modelo} </H3> : <H3>Não especificado</H3>}   
                 <p>{this.props.preco}</p>
                 <Button onClick={() => this.props.detalhes(this.props.id)}>Ir para detalhes</Button>
                 {/* <p>{console.log("PROPS: ",this.props)}</p> */}
@@ -37,7 +37,7 @@ export default TesteCard
 
 const DivContainer = styled.div`
 
-height: 320px;
+height: 360px;
 border: 1px solid black;
 padding: 30px;
 margin: 10px;
@@ -51,6 +51,7 @@ border-radius: 4px;
 const Img = styled.img`
 width:200px;
 height:100px;
+margin-bottom:12px;
 `
 
 const Button = styled.button`
@@ -62,6 +63,18 @@ border-radius:8px;
     cursor:pointer;
 }
 
+`
 
+const H4 =styled.h4`
+margin: 12px 0;
+
+`
+
+const H3 = styled.h3`
+text-align:center;
+height:150px;
+margin:auto;
+display:flex;
+align-items:center;
 
 `

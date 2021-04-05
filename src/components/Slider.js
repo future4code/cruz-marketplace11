@@ -12,17 +12,17 @@ const items = [
   {
     src: 'https://revistacarro.com.br/wp-content/uploads/2020/04/Ford-ofertas.png',
     altText: 'Oferta carro 1',
-    caption: 'React JS Zom'
+    // caption: 'React JS Zom'
   },
   {
     src: 'https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/shopping-tools/current-offers-2/01-images/masthead-carros-desktop.jpg?imwidth=1200',
     altText: 'Expo carro 2',
-    caption: 'React JS '
+    // caption: 'React JS '
   },
   {
     src: 'https://cdn.autopapo.com.br/box/uploads/2019/08/26191753/carros-em-promocao-arte.jpg',
     altText: 'Expo carro 3',
-    caption: 'React JS Modificado'
+    // caption: 'React JS Modificado'
   }
 ];
 
