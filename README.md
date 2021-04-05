@@ -49,7 +49,7 @@ $ npm run start
 ![Captura de Tela (45)](https://user-images.githubusercontent.com/59965675/113527976-9fe23580-9595-11eb-96cf-e41345a54a11.png)
 
 ### Desenvolvedores:
-Anderson 
-Emilly
-Danielle
+Anderson,
+Emilly,
+Danielle,
 Noelly
