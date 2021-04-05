@@ -38,6 +38,9 @@ $ npm run start
 ### Para acessar o site é só clicar no link abaixo.
 --->   futer-car11.surge  <---
 
+### Link da API utilizada para a contrução deste site
+--> https://documenter.getpostman.com/view/7549981/SWEDzEJ3  <--
+
 
 
 
