@@ -1,7 +1,7 @@
 
 <h1 align="center"> Future Car</h1>
 
-Link da API: https://documenter.getpostman.com/view/7549981/SWEDzEJ3
+
 
 <p align="justify"> Um site simples com foco nos serviços ofericidos aos usuários em compra e venda, com 3 abas de acesso (Página Inicial, Vendas e Compras) para que o usuário possa identificar facilmente. Na página de vendas é possível cadastrar o veículo novo ou seminovo para colocá-lo à venda, assim como também é possível especificar o tempo de entrega.</p>
 
