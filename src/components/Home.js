@@ -3,7 +3,8 @@ import FooterLargo from "./Footer";
 import Header from "./Header";
 import axios from "axios";
 import TesteCard from "./TesteCard";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Slider from './Slider';
 
 class Home extends React.Component {
 
@@ -92,8 +93,10 @@ class Home extends React.Component {
           paginaCompras={this.props.paginaCompras}
           paginaVendas={this.props.paginaVendas}
         />
-
+     
+     <Slider/>
 <Container>
+
 
 {CarrosHome}
 </Container>
